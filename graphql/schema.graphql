@@ -1,0 +1,61 @@
+# Query는 내가 정보를 받기 위해 쓰인다.
+# Mutation (변형)
+# GraphQL 에서는 Query랑 Resolvers만 있을 뿐이다.
+# Resolvers를 내가 원하는 대로 프로그래밍 할 수 있다.
+# Operation
+
+# type Person {
+#     id: String!
+#     name: String!
+#     age: Int!
+#     gender: String!
+# }
+
+type Movie {
+  id: Int!
+  title: String!
+  rating: Float!
+  summary: String!
+  language: String!
+  medium_cover_image: String!
+  description_full: String!
+}
+
+type MovieDetail {
+    id: Int!
+    title: String!
+    title_english: String!
+    title_long: String!
+    rating: Float!
+    runtime: Int!
+    year: Int!
+    description_intro: String!
+    description_full: String!
+    medium_cover_image: String!
+}
+
+type SuggestionMovie {
+    id: Int!
+    title: String!
+    title_english: String!
+    title_long: String!
+    year: Int!
+    runtime: Int!
+    rating: Float!
+    description_full: String!
+    medium_cover_image: String!
+}
+
+type Query {
+  #person array라는 걸 의미
+  # people: [Person]!
+  # person(id: Int!): Person
+  movies(limit: Int, rating: Float): [Movie]!
+  movie(id:Int!): MovieDetail
+  suggestions(id:Int!): [SuggestionMovie]
+}
+
+#Mutation은 Database 상태가 변할 떄 사용되는 것
+
+#Query 작성이나 Mutation을 하고 싶으면 type에
+# type 으로 Query , Mutation을 작성해줘야 한다.

@@ -1,0 +1,41 @@
+//만약에 내가 인스타그램을 만든다고 했을 떄..
+//그래프 큐엘 쿼리로 표현 한다면..
+
+query {
+
+    feed {
+        comments
+        likeNumber
+    }
+    notifications{
+        isRead
+    }
+    user{
+        userName
+        profilePic
+    }
+
+}
+
+
+{
+
+    feed: [
+        {
+            comments:1,
+            likeNumber:20
+        }
+    ],
+    notifications: [
+        {
+            isRead: true
+        }
+    ],
+    user: [
+        {
+            userName: "Mordiumaco"
+            profilePic: "http://~~~"
+        }
+    ]
+    
+}
